@@ -1,0 +1,7 @@
+.*
+*.log
+LICENSE
+Makefile
+test*
+*.md
+*.sh

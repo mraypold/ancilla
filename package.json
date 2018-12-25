@@ -1,0 +1,32 @@
+{
+  "name": "ancilla",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/**/*.js src/*.js index.js",
+    "start": "node index.js"
+  },
+  "author": "Michael Raypold",
+  "license": "MIT",
+  "dependencies": {
+    "grpc": "^1.17.0",
+    "koa": "^2.6.2",
+    "koa-body": "^4.0.6",
+    "koa-json-error": "^3.1.2",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "request": "^2.88.0",
+    "softmax-fn": "^1.0.8",
+    "valid-url": "^1.0.9",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.11.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1"
+  }
+}

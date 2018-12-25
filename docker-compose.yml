@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  # Tensorflow Serving will serve up the inception model so that we make gRPC calls for object detection.
+  tensorflow-serving:
+    image: 'tensorflow/serving'
+    ports:
+      - '8500:8500'
+      - '8501:8501'
+    volumes:
+      - '/tmp/inception/SERVING_INCEPTION/SERVING_INCEPTION/:/tmp/inception/'
+    environment:
+      - MODEL_NAME=inception
+      - MODEL_BASE_PATH=/tmp
+  # API contains a Koa based HTTP service that wraps object detection API calls with.
+  api:
+    image: 'node:11'
+    ports:
+      - '3000:3000'
+    volumes:
+      - './:/app'
+    working_dir: '/app'
+    depends_on:
+      - tensorflow-serving
+    entrypoint:
+      - npm
+      - start
+    environment:
+      - PORT=3000
+      - NODE_ENV=development
+      - TENSORFLOW_SERVING_HOST=tensorflow-serving
+      - TENSORFLOW_SERVING_PORT=8500
