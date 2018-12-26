@@ -8,7 +8,7 @@ services:
       - '8500:8500'
       - '8501:8501'
     volumes:
-      - '/tmp/inception/SERVING_INCEPTION/SERVING_INCEPTION/:/tmp/inception/'
+      - './models/SERVING_INCEPTION/SERVING_INCEPTION/:/tmp/inception/'
     environment:
       - MODEL_NAME=inception
       - MODEL_BASE_PATH=/tmp
