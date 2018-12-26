@@ -71,6 +71,7 @@ const predict = async imageUrl => new Promise((resolve, reject) => {
       client.predict(msg, (err, prediction) => {
         if (err) {
           reject(err);
+          return;
         }
 
         const classes = prediction.outputs.classes.string_val.map(b => b.toString('utf8'));
@@ -89,6 +90,7 @@ const predict = async imageUrl => new Promise((resolve, reject) => {
       });
     } else {
       reject();
+      return;
     }
   });
 });
